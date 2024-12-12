@@ -1,8 +1,7 @@
 name: learning-actions
 
 # Controls when the workflow will run
-push:
-  on: main
+on: push
 
 jobs:
   test:
