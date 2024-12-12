@@ -13,4 +13,6 @@ jobs:
   test-matron:
     name: test
     needs: learning-actions-job
-      - run: echo "$(cat hello_world.txt)"
+      runs-on: ubuntu-latest
+      steps:
+        - run: echo "$(cat hello_world.txt)"
