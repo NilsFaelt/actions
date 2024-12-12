@@ -10,3 +10,8 @@ jobs:
       - name: deploy
         uses: actions/checkout@v4
       - run: echo "$(cat hello_world.txt)"
+  test-matron:
+    needs: [learning-actions-job:]
+      - name: test
+        uses: actions/checkout@v4
+      - run: echo "$(cat hello_world.txt)"
