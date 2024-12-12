@@ -13,5 +13,4 @@ jobs:
   test-matron:
     name: test
     needs: learning-actions-job
-        uses: actions/checkout@v4
       - run: echo "$(cat hello_world.txt)"
