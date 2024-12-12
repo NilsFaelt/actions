@@ -4,7 +4,7 @@ name: learning-actions
 on:
   push:
     branches:
-      - notmain
+      - notsomain
 
 jobs:
   test:
