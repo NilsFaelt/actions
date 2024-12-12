@@ -4,16 +4,26 @@ name: learning-actions
 on: push
 
 jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: test-code
+        uses: actions/checkout@v4
+      - name: set up node
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+      - name: Install dependencies
+        run: npm install
+      - name: Run tests
+        run: npm test
+
   learning-actions-job:
+    name: post-test
+    needs: test
     runs-on: ubuntu-latest
     steps:
       - name: deploy
         uses: actions/checkout@v4
-      - run: echo "$(cat hello_world.txt)"
-
-  test-matron:
-    name: test
-    needs: learning-actions-job
-    runs-on: ubuntu-latest
-    steps:
-      - run: echo "$(cat hello_world.txt)"
+      - name: Post-test action
+        run: echo "$(cat hello_world.txt)"
